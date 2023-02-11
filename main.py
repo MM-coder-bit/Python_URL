@@ -11,3 +11,4 @@ print(url_base)
 # Fatiando a string do '?' até o final
 url_parametros = url[20:36]
 print(url_parametros)
+
