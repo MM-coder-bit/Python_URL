@@ -1,4 +1,4 @@
-url = "bytebank.com/cambio?moedaDestino=dolar&moedaOrigem=real"
+url = "bytebank.com/cambio?quantidade=100&moedaOrigem=real&moedaDestino=dolar"
 print(url)
 
 #--------------------------------------------------------------------------------------------------------#
@@ -7,6 +7,12 @@ print(url)
 # OBS.: se o fatiamento esta sem um dos argumentos, significa que inicia/finaliza até de/ate inicio/fim da linha [:B]-[B:]
 #--------------------------------------------------------------------------------------------------------#
 
+# Sanitizaçãp da URL
+url = url.strip() # Removendo caracteres especiais
+# Validação da URL
+if url == '':
+    raise ValueError('URL vazia')
+    
 # Encontrando o '?'
 i_interrogacao = url.find('?')
 
@@ -18,7 +24,7 @@ url_parametros = url[(i_interrogacao + 1):]
 print(url_parametros)
 
 # método len() para buscar o valor desejado
-parametro_busca = 'moedaDestino'
+parametro_busca = 'quantidade'
 i_parametro = url_parametros.find(parametro_busca) # buscando na str principal, a str de busca
 i_valor = i_parametro + (len(parametro_busca) + 1) # encontrando o index inicial do valor desejado (y = x + (len(x) + 1))
 i_E_comercial = url_parametros.find('&',i_valor) # encontrando o '&' apartir do primeiro index da str desejada
