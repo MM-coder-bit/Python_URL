@@ -1,8 +1,10 @@
 url = "bytebank.com/cambio?moedaOrigem=real"
 print(url)
 
-# obs: var[A:B] a entrada A é inclusiva, isto é adiciona a string
-#               mas a entrada B é exclusiva, significa que excluir a string
+#--------------------------------------------------------------------------------------------------------#
+# O operador de fatiamento [a:b], utilizado para obter uma substring desde o índice a até o índice b - 1 
+# da string original. Lembrando que b - 1 pois o segundo argumento do fatiamento é exclusivo.
+#--------------------------------------------------------------------------------------------------------#
 
 # Fatiando a string até o '?'
 url_base = url[0:19]
