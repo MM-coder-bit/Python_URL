@@ -38,7 +38,7 @@ class ExtratorURL:
         i_parametro = self.get_url_parametros().find(parametro_busca) # buscando na str principal, a str de busca
         i_valor = i_parametro + (len(parametro_busca) + 1) # encontrando o index inicial do valor desejado (y = x + (len(x) + 1))
         i_E_comercial = self.get_url_parametros().find('&',i_valor) # encontrando o '&' apartir do primeiro index da str desejada
-
+        
         # Se retorna -1 significa que não há '&', então busque até o fim da linha
         if i_E_comercial == -1:
             valor = self.get_url_parametros()[i_valor:] # método de fatiamento
@@ -51,8 +51,13 @@ class ExtratorURL:
     def __len__(self):
         return len(self.url) # retorna o tamanho dele mesmo
 
+    # Adicionado método __str__() na classe
+    def __str__(self):
+        return ("URL: " + self.url + "\n" + "URL Base: " + self.get_url_base() + "\n" + "Parametros da URL: " + self.get_url_parametros())
+
 extrator_url = ExtratorURL('https://www.bytebank.com.br/cambio?quantidade=100&moedaOrigem=real&moedaDestino=dolar')
 print("O tamanho da URL (caracteres):", len(extrator_url)) # Utilizando o método __len__()
+print(extrator_url)
 
 valor_quantidade = extrator_url.get_valor_parametro("moedaDestino")
-print(valor_quantidade)
+print("Valor do Parametro: ",valor_quantidade)
