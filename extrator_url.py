@@ -10,7 +10,7 @@ class ExtratorURL:
             return ""
 
     def valida_url(self):
-        if not self.url:                     # por baixo dos panos o python ta executando o metodo bool()
+        if not self.url:                     # por baixo dos panos o python executa o método bool()
             raise ValueError('URL vazia')
 
     def get_url_base(self):
